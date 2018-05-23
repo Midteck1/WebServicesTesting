@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" total="5" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="7298" started-at="2018-05-23T05:50:10Z" finished-at="2018-05-23T05:50:17Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="7298" started-at="2018-05-23T05:50:10Z" finished-at="2018-05-23T05:50:17Z">
+      <class name="API.testing.WebAppITesting.Test1_Basic_Feature">
+        <test-method status="PASS" signature="initialize()[pri:0, instance:API.testing.WebAppITesting.Test1_Basic_Feature@68c4039c]" name="initialize" is-config="true" duration-ms="276" started-at="2018-05-23T11:20:10Z" finished-at="2018-05-23T11:20:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="verifyCreateCompany()[pri:1, instance:API.testing.WebAppITesting.Test1_Basic_Feature@68c4039c]" name="verifyCreateCompany" duration-ms="3416" started-at="2018-05-23T11:20:10Z" finished-at="2018-05-23T11:20:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCreateCompany -->
+        <test-method status="PASS" signature="createContac()[pri:2, instance:API.testing.WebAppITesting.Test1_Basic_Feature@68c4039c]" name="createContac" duration-ms="748" started-at="2018-05-23T11:20:14Z" finished-at="2018-05-23T11:20:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createContac -->
+        <test-method status="FAIL" signature="contentAssociatedWithCompany()[pri:3, instance:API.testing.WebAppITesting.Test1_Basic_Feature@68c4039c]" name="contentAssociatedWithCompany" duration-ms="707" started-at="2018-05-23T11:20:15Z" finished-at="2018-05-23T11:20:15Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [401] but found [0]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [401] but found [0]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:190)
+	at org.testng.Assert.assertEquals(Assert.java:200)
+	at API.testing.WebAppITesting.Test1_Basic_Feature.contentAssociatedWithCompany(Test1_Basic_Feature.java:77)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1129)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:746)
+	at org.testng.TestRunner.run(TestRunner.java:600)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1264)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1189)
+	at org.testng.TestNG.runSuites(TestNG.java:1104)
+	at org.testng.TestNG.run(TestNG.java:1076)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:152)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:57)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- contentAssociatedWithCompany -->
+        <test-method status="PASS" signature="deleteContact()[pri:4, instance:API.testing.WebAppITesting.Test1_Basic_Feature@68c4039c]" name="deleteContact" duration-ms="686" started-at="2018-05-23T11:20:15Z" finished-at="2018-05-23T11:20:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteContact -->
+        <test-method status="PASS" signature="deleteCompany()[pri:5, instance:API.testing.WebAppITesting.Test1_Basic_Feature@68c4039c]" name="deleteCompany" duration-ms="1018" started-at="2018-05-23T11:20:16Z" finished-at="2018-05-23T11:20:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteCompany -->
+        <test-method status="PASS" signature="cleanup()[pri:0, instance:API.testing.WebAppITesting.Test1_Basic_Feature@68c4039c]" name="cleanup" is-config="true" duration-ms="403" started-at="2018-05-23T11:20:17Z" finished-at="2018-05-23T11:20:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanup -->
+      </class> <!-- API.testing.WebAppITesting.Test1_Basic_Feature -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
