@@ -1,9 +1,12 @@
 package API.testing.WebAppITesting;
 
+import java.util.Hashtable;
+
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 
 import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
@@ -14,6 +17,10 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
 
 
 
+
+import com.qtpselenium.facebook.pom.util.DataUtil;
+import com.qtpselenium.facebook.pom.util.FBConstants;
+import com.relevantcodes.extentreports.LogStatus;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
@@ -26,6 +33,40 @@ public class Test1_Basic_Feature extends TestCaseBase {
 	//3As Principle
 
 	//Create a Company
+	
+	
+String testCaseName="LoginTest";
+	
+	@Test(dataProvider="getData")
+	public void doLogin(Hashtable<String,String> data){
+		if(!API.testing.WebAppITesting.Utils.DataUtil.isTestExecutable(xls, testCaseName) ||  data.get(FBConstants.RUNMODE_COL).equals("N")){
+		
+			throw new SkipException("Skipping the test as Rnumode is N");
+		}
+	
+		logger = extent.createTest("Verify Create Company");
+		String URL="https://api.hubapi.com/companies/v2/companies?hapikey="+HAPIKEY;
+		String requestBody="{\"properties\": [ { \"name\": \"name\", \"value\": \"IBM\" },  {  \"name\": \"description\",  \"value\": \"GDS Bangalore\"  },{  \"name\": \"domain\",  \"value\": \"ibm.com\"  } ]}";
+
+		//Action
+		String id=given().contentType("application/json").body(requestBody)
+				.when().post(URL).
+		//Assert
+				then().statusCode(200)
+				.extract().path("companyId").toString();
+
+		System.out.println(id);
+		companyID=id;
+
+		if(id!=null) {
+			logger.log(Status.PASS, MarkupHelper.createLabel("Company Creation - PASSED", ExtentColor.GREEN));
+		}else {
+			logger.log(Status.FAIL, MarkupHelper.createLabel("Company Creation - FAILED", ExtentColor.RED));
+		}
+		
+	}
+	
+	
 	@Test(priority=1)
 	public void verifyCreateCompany() {
 		//Arrange
@@ -50,7 +91,7 @@ public class Test1_Basic_Feature extends TestCaseBase {
 		}
 		
 	}
-	@Test(priority=2)
+/*	@Test(priority=2)
 	public void createContac(){
 		logger = extent.createTest("Verify Create Contact");
 		String URL="https://api.hubapi.com/contacts/v1/contact/?hapikey="+HAPIKEY;
@@ -82,7 +123,7 @@ public class Test1_Basic_Feature extends TestCaseBase {
 			logger.log(Status.FAIL, MarkupHelper.createLabel("Contact Associtaion with Company - FAILED", ExtentColor.RED));
 		}
 	}
-	@Test(priority=5)
+*/	@Test(priority=5)
 		public void deleteCompany(){
 		logger=extent.createTest("Comany Delete");
 		String URL="https://api.hubapi.com/companies/v2/companies/"+companyID+"?hapikey="+HAPIKEY;
@@ -96,7 +137,7 @@ public class Test1_Basic_Feature extends TestCaseBase {
 		}
 		
 		}
-	@Test(priority=4)
+/*	@Test(priority=4)
 	public void deleteContact(){
 		logger=extent.createTest("Contact Delete");
 		String URL="https://api.hubapi.com/contacts/v1/contact/vid/"+contactID+"?hapikey="+HAPIKEY;
@@ -108,6 +149,6 @@ public class Test1_Basic_Feature extends TestCaseBase {
 			logger.log(Status.FAIL, MarkupHelper.createLabel("Contact Deletion - FAILED", ExtentColor.RED));
 		}
 	}
-	}
+*/	}
 
 

@@ -3,6 +3,8 @@ package API.testing.WebAppITesting;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import API.testing.WebAppITesting.Utils.Constants;
+
 import com.aventstack.extentreports.ExtentReporter;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -14,7 +16,8 @@ public class TestCaseBase {
 	ExtentHtmlReporter htmlRep;
 	ExtentReports extent;
 	ExtentTest logger;
-	
+	public API.testing.WebAppITesting.Utils.Xls_Reader xls = new API.testing.WebAppITesting.Utils.Xls_Reader(Constants.DATA_XLS_PATH);
+
 	
 	@BeforeTest
 	public void initialize() {
