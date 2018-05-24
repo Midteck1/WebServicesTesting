@@ -63,7 +63,8 @@ public class Test1_Basic_Feature extends TestCaseBase {
 		}else {
 			logger.log(Status.FAIL, MarkupHelper.createLabel("Contact Creation - FAILED", ExtentColor.RED));
 		}
-		
+	
+		System.out.println("dsfsdfs");
 	}
 	
 	@Test(priority=3)
